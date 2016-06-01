@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script>
+var listApp = angular.module('listApp',[]);
+listApp.controller('ListController', ['$scope', function($scope) {
+$scope.synths = [ {brand:'Korg',model:'Poly-800'},
+        {brand:'Nord',model:'Micro Modular'},
+        {brand:'Elektron',model:'Monomachine'}];
+
+// sample method
+$scope.myMethod = function() { 
+// code here to update any variables referenced by the view template 
+};
+}]);
+</script>
+
+<!--View template. Add necessary Angular directives -->
+<body ng-app="listApp">
+    <li ng-repeat="brand in synths">{{brand.synths}}</li>
+<div ng-controller="ListController">
+<p>Search : <input type="text"></p>
+
+<b>Total: </b>
+
+</div>
+</body>
+</html>
+

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <link rel=stylesheet href="public/css/style.css"/>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="jquery-ui/jquery-ui.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script src="app.js"></script>
+</head>
+<body ng-app="introApp" ng-init="qty=1;cost=2;">
+<script>
+  function mybrandfunction () {
+    $( "#dialog" ).dialog();
+  }
+  
+
+function mymodelfunction(e) {
+ $("#dialog2").dialog();
+}
+  </script>
+<div ng-controller="IntroController">
+ 	<h1>Hello {{name}}</h1>
+ 	<p>Name : <input type="text" ng-model="name"></p>
+  <hr>
+  <p>What are you searching for, {{name}}?</p>
+  <input type="text" ng-model="search">
+  <button>Search</button>
+  <hr>Our Synth Inventory:
+  
+  <table id="synthTable" border="1" style="cursor: pointer;">
+  <tr ng-repeat="x in synths | orderBy : 'price' | filter:search  | filter:query as filtered" >
+    <td onclick="mybrandfunction()">{{ x.brand }}</td>
+    <td onclick="mymodelfunction()">{{ x.model }}</td>
+    <td>$ {{ x.price }}</td>
+  </tr>
+</table>
+
+
+<div ng-repeat="x in synths | orderBy : 'price' | filter:query as filtered" class="hidden" id="dialog" title="More Info">
+  <p> {{x.brand}} {{ x.model }}, {{x.polyphony}}</p>
+</div>
+
+<div ng-repeat="x in synthimages" class="hidden" id="dialog2" title="Would Like to Display Image in this box">
+  <img ng-src="{{x.synthimages}}">
+</div>
+
+    <hr>    
+    Synth inventory has {{filtered.length}} items, {{name}}.
+  
+
+  
+  <p><b>Invoice:</b>
+  <div>
+    Quantity: <input type="number" min="0" ng-model="qty">
+  </div>
+  <div>
+    Costs: <input type="number" min="0" ng-model="cost">
+  </div>
+  <div>
+    <b>Total:</b> {{qty * cost | currency}}
+  </div>
+  <p><button ng-click="resetForm()">{{buttonText}}</button></p>
+</div>
+
+
+
+
+
+
+
+</body>
+</html>
