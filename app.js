@@ -9,7 +9,7 @@ introApp.controller('IntroController', ['$scope', function($scope) {
     {id: 3, brand: 'ensoniq', model:'Fizmo', price: 1500.00, polyphony: '32 Voices', src:'public/images/fizmo.jpeg'},
     {id: 4, brand: 'moog', model:'Memory Moog', price: 2500.00, polyphony: 'No, monophonic', src:'public/images/memorymoog.jpeg'},
     {id: 5, brand: 'buchla', model:'Who In Their Right Mind Would Buy This?', price: 6500.00, polyphony: "No, monophonic", src:'public/images/buchla.jpg'},
-    {id: 6, brand: 'emu' , model:"Proteus-1", price: 65.00, polyphony: '16 Voices'}
+    {id: 6, brand: 'emu' , model:"Proteus-1", price: 65.00, polyphony: '16 Voices', src:'public/images/proteus.jpg'}
     ];
  
  
